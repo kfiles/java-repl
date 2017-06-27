@@ -287,9 +287,7 @@ public class JavaREPLConsoleRunner {
 
         Map<String, String> envParams = new HashMap<String, String>();
         envParams.putAll(System.getenv());
-        line.setEnvParams(envParams);
-        line.addParameter("--port=" + port);
 
-        return line;
+        return line.withEnvironment(envParams).withParameters("--port=" + port);
     }
 }
